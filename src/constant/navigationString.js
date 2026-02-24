@@ -1,0 +1,23 @@
+
+export default {
+    LoginWithMobile : 'LoginWithMobile',
+    Register: 'Register',
+    HomeScreen : 'HomeScreen',
+    SplashScreen: 'SplashScreen',
+    StartScreen: 'StartScreen',
+    LoginWithEmail: 'LoginWithEmail',
+    Profile : 'Profile',
+    ProfileData: 'ProfileData',
+    Login : 'Login',
+    ExploreDetails : 'ExploreDetails',
+    General : 'General',
+    History : 'History',
+    HealthChallenges : 'HealthChallenges',
+    Familyillnesses : 'Familyillnesses',
+    PastDiesease : 'PastDiesease',
+    Occupation : 'Occupation',
+    Message : 'Message',
+    NotificationScreen : 'NotificationScreen',
+    ForgotPassword : 'ForgotPassword',
+    PaymentScreen : 'PaymentScreen',
+}

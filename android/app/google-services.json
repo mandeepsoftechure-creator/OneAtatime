@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182333550109",
+    "project_id": "oneatatime-2f763",
+    "storage_bucket": "oneatatime-2f763.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182333550109:android:e5cc8c59d9933644a820f4",
+        "android_client_info": {
+          "package_name": "com.oneatatime"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZHsBpbwpg3QNjNsZQD2L9wp0dXoeaswo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

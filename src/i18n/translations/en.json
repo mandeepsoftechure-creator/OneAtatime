@@ -1,0 +1,24 @@
+{
+    "hello" : "Hello word",
+    "name" : "name",
+    "login_with_mobile": "Login with Mobile",
+    "email_mobile": "E-mail/Mobile no",
+    "enter_registered_email_mobile": "Enter registered email/ mobile",
+    "password": "Password",
+    "enter_your_password": "Enter your password",
+    "forgot_password": "I forgot my Password",
+    "dont_have_account": "Don't have an account? Let's create!",
+    "next": "Next",
+    "please_enter_mobile_email": "Please enter mobile or email address",
+    "password_required": "Password is required",
+
+    "lets_begin": "Let's begin!",
+    "register_with_mobile": "Register with Mobile",
+    "register_with_email": "Register with Email",
+    "by_continuing_you_agree": "By continuing you agree",
+    "terms_of_services": "Terms of Services",
+    "privacy_policy": "Privacy Policy",
+    "privacy_policy_url_not_found": "Privacy policy URL not found",
+    "error": "Error",
+    "failed_to_fetch_privacy_policy": "Failed to fetch privacy policy"
+}

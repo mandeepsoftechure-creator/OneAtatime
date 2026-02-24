@@ -1,0 +1,24 @@
+{
+    "hello" : "नमस्ते",
+    "name" : "नाम",
+    "login_with_mobile": "मोबाइल के साथ लॉगिन करें",
+    "email_mobile": "ईमेल/मोबाइल नंबर",
+    "enter_registered_email_mobile": "पंजीकृत ईमेल/मोबाइल दर्ज करें",
+    "password": "पासवर्ड",
+    "enter_your_password": "अपना पासवर्ड दर्ज करें",
+    "forgot_password": "मैं अपना पासवर्ड भूल गया हूँ",
+    "dont_have_account": "खाता नहीं है? चलिए बनाते हैं!",
+    "next": "आगे",
+    "please_enter_mobile_email": "कृपया मोबाइल या ईमेल पता दर्ज करें",
+    "password_required": "पासवर्ड आवश्यक है",
+
+    "lets_begin": "चलो शुरू करें!",
+    "register_with_mobile": "मोबाइल के साथ पंजीकरण करें",
+    "register_with_email": "ईमेल के साथ पंजीकरण करें",
+    "by_continuing_you_agree": "जारी रखने से आप सहमत होते हैं",
+    "terms_of_services": "सेवा की शर्तें",
+    "privacy_policy": "गोपनीयता नीति",
+    "privacy_policy_url_not_found": "गोपनीयता नीति URL नहीं मिला",
+    "error": "त्रुटि",
+    "failed_to_fetch_privacy_policy": "गोपनीयता नीति प्राप्त करने में विफल"
+}
