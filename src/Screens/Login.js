@@ -25,7 +25,7 @@ import messaging from '@react-native-firebase/messaging';
 
 const Login = ({ navigation }) => {
 
-    const { t , i18n} = useTranslation();
+    const { t, i18n } = useTranslation();
     const { colors } = useTheme();
     const { userData, saveUserData } = useUserData();
 
@@ -38,33 +38,38 @@ const Login = ({ navigation }) => {
 
     useFocusEffect(
         React.useCallback(() => {
-          const onBackPress = () => {
-            Alert.alert(
-                      ' Exit From App ',
-                      ' Do you want to exit from app ?',
-                      [
+            const onBackPress = () => {
+                Alert.alert(
+                    'Exit From App',
+                    'Do you want to exit from app?',
+                    [
                         { text: 'Yes', onPress: () => BackHandler.exitApp() },
-                        { text: 'No', onPress: () => console.log('NO Pressed') }
-                      ],
-                      { cancelable: false },
-                    );
-            return true;
-          };
-     BackHandler.addEventListener('hardwareBackPress', onBackPress );
-     return () => {BackHandler.removeEventListener( 'hardwareBackPress',  onBackPress ); };
-        }, []),
-      );
+                        { text: 'No', style: 'cancel' },
+                    ],
+                    { cancelable: false }
+                );
+                return true;
+            };
+
+            const subscription = BackHandler.addEventListener(
+                'hardwareBackPress',
+                onBackPress
+            );
+
+            return () => subscription.remove(); 
+        }, [])
+    );
 
     const handleBackPress = () => {
         navigation.goBack();
     };
 
-  
+
     useEffect(() => {
         StatusBar.setBarStyle(colors.background === BaseColor.whiteColor ? 'dark-content' : 'light-content');
         StatusBar.setBackgroundColor(colors.background);
-      }, [colors]);
-   
+    }, [colors]);
+
 
     const handleSubmit = async () => {
 
@@ -78,14 +83,14 @@ const Login = ({ navigation }) => {
                 let token = await AsyncStorage.getItem('@fcm_device_token');
 
                 if (token == null) {
-                  const token_new = await messaging().getToken();
-                  token = token_new;
-                  // Save the new token to AsyncStorage for future use
-                  await AsyncStorage.setItem('@fcm_device_token', token);
+                    const token_new = await messaging().getToken();
+                    token = token_new;
+                    // Save the new token to AsyncStorage for future use
+                    await AsyncStorage.setItem('@fcm_device_token', token);
                 }
 
                 console.log(token, '===========================>')
-               
+
                 const response = await loginUser(mobile, password, token);
 
                 if (response.status == true) {
@@ -93,7 +98,7 @@ const Login = ({ navigation }) => {
                     navigation.replace(navigationString.HomeScreen)
                     console.log('response:', response);
                 } else {
-                Toast.show(response.message, Toast.LONG);
+                    Toast.show(response.message, Toast.LONG);
                 }
             } catch (error) {
                 console.log('Error response:', error);
@@ -105,26 +110,26 @@ const Login = ({ navigation }) => {
 
     const changeLanguage = async (lng) => {
         try {
-          await i18n.changeLanguage(lng);
-          await AsyncStorage.setItem('user-language', lng);
+            await i18n.changeLanguage(lng);
+            await AsyncStorage.setItem('user-language', lng);
         } catch (error) {
-          console.log('Failed to change language:', error);
+            console.log('Failed to change language:', error);
         }
-      };
-  
+    };
+
     return (
-        <View style={{ flex: 1, backgroundColor: colors.background}}>
-      
+        <View style={{ flex: 1, backgroundColor: colors.background }}>
+
             <Loader visible={loading}></Loader>
 
             <CustomHeaderLogin title={t('Login')} onBackPress={handleBackPress} />
 
-            <ScrollView style={{backgroundColor : colors.app_background}} >
+            <ScrollView style={{ backgroundColor: colors.app_background }} >
 
                 <CustomEditText text_name={t('email_mobile')}
                     style_view={{ backgroundColor: BaseColor.light }}
                     placeholder={t('Enter...')}
-                    onTextChange={(text) => { setMobile(text)}}
+                    onTextChange={(text) => { setMobile(text) }}
                 />
 
 
@@ -134,9 +139,9 @@ const Login = ({ navigation }) => {
                     onTextChange={(text) => { setPassword(text) }}
                 />
 
-              <TouchableOpacity onPress={()=> navigation.navigate(navigationString.ForgotPassword)}>
-              <Text style={styles.text_forgot}>{t('forgot_password')}</Text>
-              </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate(navigationString.ForgotPassword)}>
+                    <Text style={styles.text_forgot}>{t('forgot_password')}</Text>
+                </TouchableOpacity>
 
             </ScrollView>
 
@@ -145,10 +150,10 @@ const Login = ({ navigation }) => {
                 right: responsiveWidth(0), marginBottom: responsiveHeight(2),
                 marginHorizontal: responsiveWidth(2)
             }}>
-                <TouchableOpacity onPress={()=> navigation.navigate(navigationString.StartScreen)}>
-                <Text style={[styles.footerText]}>
-                {t('dont_have_account')}
-                </Text>
+                <TouchableOpacity onPress={() => navigation.navigate(navigationString.StartScreen)}>
+                    <Text style={[styles.footerText]}>
+                        {t('dont_have_account')}
+                    </Text>
                 </TouchableOpacity>
 
                 <RegisterButton
