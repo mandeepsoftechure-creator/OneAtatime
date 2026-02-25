@@ -173,24 +173,29 @@ const HomeScreen = ({ navigation }) => {
   };
 
   // Back handler
-  useFocusEffect(
-    React.useCallback(() => {
-      const onBackPress = () => {
-        Alert.alert(
-          ' Exit From App ',
-          ' Do you want to exit From App ?',
-          [
-            { text: 'Yes', onPress: () => BackHandler.exitApp() },
-            { text: 'No', onPress: () => console.log('NO Pressed') }
-          ],
-          { cancelable: false },
-        );
-        return true;
-      };
-      BackHandler.addEventListener('hardwareBackPress', onBackPress);
-      return () => { BackHandler.removeEventListener('hardwareBackPress', onBackPress); };
-    }, []),
-  );
+ useFocusEffect(
+  React.useCallback(() => {
+    const onBackPress = () => {
+      Alert.alert(
+        'Exit From App',
+        'Do you want to exit From App?',
+        [
+          { text: 'Yes', onPress: () => BackHandler.exitApp() },
+          { text: 'No', onPress: () => null }
+        ],
+        { cancelable: false }
+      );
+      return true;
+    };
+
+    const subscription = BackHandler.addEventListener(
+      'hardwareBackPress',
+      onBackPress
+    );
+
+    return () => subscription.remove();   // ✅ NEW WAY
+  }, [])
+);
 
   const pan = useRef(new Animated.ValueXY()).current;
 

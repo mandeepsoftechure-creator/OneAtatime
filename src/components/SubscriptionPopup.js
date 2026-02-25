@@ -40,7 +40,7 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
       description: `${plan.description} for ${plan.duration_with_label.toLowerCase()}`,
       price: plan.price === 0 ? 'FREE' : `₹${plan.price}`,
 
-      popular: plan.price > 0, // Mark paid plans as popular, adjust as needed
+      popular: Number(plan.id) === 2, // Mark plan with id 2 as popular, adjust as needed
       originalData: plan // Keep original data for reference
 
     }));
@@ -55,6 +55,10 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
   const handleConfirmSelection = () => {
     if (selectedOption) {
       const selected = subscriptionOptions.find(option => option.id === selectedOption);
+
+      console.log('Selected Option:', selected);
+
+
       onSelectSubscription(selected.originalData); // Pass original plan data
       onClose();
     }
@@ -63,6 +67,16 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
   // Add this function to handle overlay press
   const handleOverlayPress = () => {
     onClose();
+  };
+
+  const getPlanCardBackgroundColor = (planId) => {
+    const id = Number(planId);
+
+    if (id === 1) return '#F1FAF4';
+    if (id === 2) return '#F2F7FD';
+    if (id === 3) return '#FEF4EC';
+
+    return BaseColor.whiteColor;
   };
 
   const renderSubscriptionOptions = () => {
@@ -88,10 +102,12 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
         <Text style={styles.subscriptionTitle}>Choose Your Plan</Text>
 
         {subscriptionOptions.map((option) => (
+
           <TouchableOpacity
             key={option.id}
             style={[
               styles.subscriptionOption,
+              { backgroundColor: getPlanCardBackgroundColor(option.id) },
               option.popular && styles.popularOption,
               selectedOption === option.id && styles.selectedOption
             ]}
@@ -238,11 +254,9 @@ const styles = StyleSheet.create({
   },
   popularOption: {
     borderColor: BaseColor.primary,
-    backgroundColor: BaseColor.primary + '10',
   },
   selectedOption: {
     borderColor: '#4CAF50',
-    backgroundColor: '#4CAF50' + '08',
     transform: [{ scale: 1.02 }],
   },
   popularBadge: {
@@ -289,7 +303,7 @@ const styles = StyleSheet.create({
   optionDescription: {
     fontSize: responsiveFontSize(1.4),
     fontFamily: Fonts.regular,
-    color: BaseColor.text,
+    color: BaseColor.black,
   },
   checkmarkContainer: {
     width: responsiveWidth(6),
