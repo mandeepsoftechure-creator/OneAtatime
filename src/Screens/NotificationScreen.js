@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   notificationDescription: {
     fontSize: responsiveFontSize(1.6),
     fontFamily: Fonts.regular,
-    color: BaseColor.grayColor,
+    color: BaseColor.black,
     lineHeight: responsiveFontSize(2.5)
   },
 

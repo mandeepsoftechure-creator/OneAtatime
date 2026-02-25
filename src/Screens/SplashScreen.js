@@ -91,7 +91,7 @@ const SplashScreen = ({ navigation }) => {
           adjustsFontSizeToFit
           minimumFontScale={0.9}
         >
-          Easy Steps for Sustainable Health!
+          Small Steps, Lasting Health!
         </Text>
         </Animated.View>
 
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     color: BaseColor.primary, 
     fontFamily: Platform.OS === 'ios' ? Fonts.georgiaBold : 'georgia b',
    // fontWeight: 'bold',
-    fontSize: responsiveFontSize(6.55), 
+    fontSize: responsiveFontSize(6.2), 
     
     textAlign : 'center',
     includeFontPadding : false,
