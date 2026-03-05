@@ -702,7 +702,7 @@
 				CODE_SIGN_ENTITLEMENTS = OneAtaTime/OneAtaTime.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = XJ725SC7HJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = OneAtaTime/Info.plist;
@@ -711,7 +711,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -735,7 +735,7 @@
 				CODE_SIGN_ENTITLEMENTS = OneAtaTime/OneAtaTime.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = XJ725SC7HJ;
 				INFOPLIST_FILE = OneAtaTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -743,7 +743,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.6;
+				MARKETING_VERSION = 1.0.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
