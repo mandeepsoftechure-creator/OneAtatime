@@ -37,7 +37,8 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
       id: plan.id.toString(),
       title: plan.name,
       // duration: plan.duration_with_label,
-      description: `${plan.description} for ${plan.duration_with_label.toLowerCase()}`,
+      // description: `${plan.description} for ${plan.duration_with_label.toLowerCase()}`,
+      description: plan.description,
       price: plan.price === 0 ? 'FREE' : `₹${plan.price}`,
 
       popular: Number(plan.id) === 2, // Mark plan with id 2 as popular, adjust as needed
@@ -99,7 +100,7 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
 
     return (
       <View style={styles.subscriptionContainer}>
-        <Text style={styles.subscriptionTitle}>Choose Your Plan</Text>
+        <Text style={styles.subscriptionTitle}>Invest in Your Longevity</Text>
 
         {subscriptionOptions.map((option) => (
 
@@ -149,7 +150,7 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
           disabled={!selectedOption}
         >
           <Text style={styles.confirmButtonText}>
-            {selectedOption ? 'Continue with Selected Plan' : 'Select a Plan'}
+            {selectedOption ? 'Continue with Choose Plan' : 'Choose a Plan'}
           </Text>
         </TouchableOpacity>
       </View>
@@ -301,7 +302,7 @@ const styles = StyleSheet.create({
     marginBottom: responsiveHeight(1),
   },
   optionDescription: {
-    fontSize: responsiveFontSize(1.4),
+    fontSize: responsiveFontSize(1.5),
     fontFamily: Fonts.regular,
     color: BaseColor.black,
   },

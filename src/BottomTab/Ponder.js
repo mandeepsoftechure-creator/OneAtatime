@@ -87,7 +87,7 @@ const Ponder = ({ navigation }) => {
             key={`${item.label}-${index}`}
             question={item.label}
             answer={item.content}
-            cardBackgroundColor={'#F0E2C3'}
+            cardBackgroundColor={'#F2EAE0'}
           />
         ))}
 
