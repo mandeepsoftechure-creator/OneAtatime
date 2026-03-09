@@ -65,11 +65,6 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
     }
   };
 
-  // Add this function to handle overlay press
-  const handleOverlayPress = () => {
-    onClose();
-  };
-
   const getPlanCardBackgroundColor = (planId) => {
     const id = Number(planId);
 
@@ -150,7 +145,7 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
           disabled={!selectedOption}
         >
           <Text style={styles.confirmButtonText}>
-            {selectedOption ? 'Continue with Choose Plan' : 'Choose a Plan'}
+            {selectedOption ? 'Continue' : 'Choose a Plan'}
           </Text>
         </TouchableOpacity>
       </View>
@@ -162,27 +157,18 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
       visible={visible}
       animationType="slide"
       transparent={true}
+      onRequestClose={() => {}}
     >
       <View style={styles.modalOverlay}>
-        {/* Add overlay press handler */}
-        <TouchableOpacity
-          style={styles.overlayTouchable}
-          activeOpacity={1}
-          onPress={handleOverlayPress}
-        >
+        <View style={styles.overlayTouchable}>
           <View style={styles.modalContent}>
-            {/* Prevent modal content from closing when pressing inside */}
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={(e) => e.stopPropagation()}
-              style={{ width: '100%' }}
-            >
+            <View style={{ width: '100%' }}>
               <View style={[styles.mainContainer, { backgroundColor: colors.background }]}>
                 {renderSubscriptionOptions()}
               </View>
-            </TouchableOpacity>
+            </View>
           </View>
-        </TouchableOpacity>
+        </View>
       </View>
     </Modal>
   );
@@ -344,3 +330,4 @@ const styles = StyleSheet.create({
 });
 
 export default SubscriptionPopup;
+
