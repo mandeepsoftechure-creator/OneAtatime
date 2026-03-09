@@ -145,7 +145,7 @@ const SubscriptionPopup = ({ visible, onClose, onSelectSubscription, loading, pl
           disabled={!selectedOption}
         >
           <Text style={styles.confirmButtonText}>
-            {selectedOption ? 'Continue with Choose Plan' : 'Choose a Plan'}
+            {selectedOption ? 'Continue' : 'Choose a Plan'}
           </Text>
         </TouchableOpacity>
       </View>
